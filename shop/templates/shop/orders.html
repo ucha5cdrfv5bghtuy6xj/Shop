@@ -1,0 +1,14 @@
+{%extends "shop/base.html"%}
+{%load static%}
+{%block title%}shop|Orders{%endblock%}
+{%block content%}
+<h1 class="text-center fw-bold mb-4">Заказы</h1>
+{%for order in orders%}
+<div class="d-flex flex-wrap justify-content-center gap-3 mx-auto" style="max-width: 800px; box-shadow: 0 0 5px #0002;">
+    <span class="align-self-start fw-bold fs-5">{{order.id}}</span>
+    <span>{{order.product.name}}</span>
+    <span>{{order.adres|truncatewords:6}}</span>
+    <span>{{order.created_at}}</span>
+{%endfor%}
+</div>
+{%endblock%}

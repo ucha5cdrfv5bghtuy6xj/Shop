@@ -4,25 +4,28 @@
 {%block content%}
 <h1 class="text-center mb-4">Catalog</h1>
 <div class="d-flex flex-wrap gap-3 justify-content-center mx-auto" style="max-width: 800px;">
-    <div class="card" style="width: 18rem;">
-        <img src="https://avatars.mds.yandex.net/i?id=705b6a06f04fd553926001d58b2b3098f6756640-13101499-images-thumbs&n=13" alt="" class="card-img-top">
-        <div class="card-body">
-          <h5 class="card-title">banana's</h5>
-          <span class="card-text d-flex mt-auto">
-            <span class="fs-2 fw-bold">10000$</span>
-            <span class="text-danger fs-6 ">-10%</span>
-          </span>
-          <div class="d-flex gap-1 mb-3">
-            <img src="{%static 'shop/img/Image20240823212120.png'%}" alt="" width="20" height="20">
-            <img src="{%static 'shop/img/Image20240823212120.png'%}" alt="" width="20" height="20">
-            <img src="{%static 'shop/img/Image20240823212120.png'%}" alt="" width="20" height="20">
-            <img src="{%static 'shop/img/Image20240823212120.png'%}" alt="" width="20" height="20">
-            <img src="{%static 'shop/img/Image20240823212120.png'%}" alt="" width="20" height="20" style="filter: grayscale(1);">
-          </div>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
+  {%for product in products%}
+  <div class="card" style="width: 18rem;">
+    <img src="{{product.img.url}}" alt="" class="card-img-top">
+    <div class="card-body d-flex flex-column">
+      <h5 class="card-title">{{product.name}}</h5>
+      <span class="card-text d-flex mt-auto">
+        <span class="fs-2 fw-bold">{{product.price}}$</span>
+        <span class="text-danger fs-6 ">-{{product.sale}}%</span>
+      </span>
+      <div class="d-flex gap-1 mb-3">
+        <img src="{%static 'shop/img/Image20240823212120.png'%}" alt="" width="20" height="20">
+        <img src="{%static 'shop/img/Image20240823212120.png'%}" alt="" width="20" height="20">
+        <img src="{%static 'shop/img/Image20240823212120.png'%}" alt="" width="20" height="20">
+        <img src="{%static 'shop/img/Image20240823212120.png'%}" alt="" width="20" height="20">
+        <img src="{%static 'shop/img/Image20240823212120.png'%}" alt="" width="20" height="20"
+          style="filter: grayscale(1);">
       </div>
+      <a href="#" class="btn btn-primary">Подробнее</a>
+      <small class="text-black-50 mt-2">{{product.desk}}</small>
+    </div>
+  </div>
+  {%endfor%}
 </div>
 
 
