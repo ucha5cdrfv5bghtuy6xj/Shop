@@ -14,14 +14,16 @@
         <span class="text-danger fs-6 ">-{{product.sale}}%</span>
       </span>
       <div class="d-flex gap-1 mb-3">
-        <img src="{%static 'shop/img/Image20240823212120.png'%}" alt="" width="20" height="20">
-        <img src="{%static 'shop/img/Image20240823212120.png'%}" alt="" width="20" height="20">
-        <img src="{%static 'shop/img/Image20240823212120.png'%}" alt="" width="20" height="20">
-        <img src="{%static 'shop/img/Image20240823212120.png'%}" alt="" width="20" height="20">
-        <img src="{%static 'shop/img/Image20240823212120.png'%}" alt="" width="20" height="20"
+        <img src="{%static 'shop/img/rating_star.png'%}" alt="" width="20" height="20">
+        <img src="{%static 'shop/img/rating_star.png'%}" alt="" width="20" height="20">
+        <img src="{%static 'shop/img/rating_star.png'%}" alt="" width="20" height="20">
+        <img src="{%static 'shop/img/rating_star.png'%}" alt="" width="20" height="20">
+        <img src="{%static 'shop/img/rating_star.png'%}" alt="" width="20" height="20"
           style="filter: grayscale(1);">
       </div>
-      <a href="#" class="btn btn-primary">Подробнее</a>
+      <a href="{% url 'product_detail' product_id=product.id %}"
+       class="card border-0 rounded-4"
+       style="width: 250px; box-shadow: 0 0 5px #00000022;">Подробнее</a>
       <small class="text-black-50 mt-2">{{product.desk}}</small>
     </div>
   </div>
