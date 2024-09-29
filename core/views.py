@@ -7,16 +7,28 @@ def signup(request):
         email = request.POST.get("email")
         password = request.POST.get("password")
         r_password = request.POST.get("repeat_password")
-        if password != r_password:
-            return render(request, "core/signup.html", {
-                "error" : "Пароли не совпадают"
-            })
-        User.objects.create_user(
-            username = usname,
-            email = email,
-            password = password,
-        )
-        return redirect("signin")
+        if password and email and r_password and usname:
+            if password != r_password:
+                return render(request, "core/auth/signup.html", {
+                    "error" : "Пароли не совпадают"
+                })
+            user = User.objects.filter(
+                username = usname,
+                email = email,
+                ).first()
+            if user:
+                return render(request, "core/auth/signup.html",{
+                    "error" : "Такой пользователь уже существует"
+                })
+            print(user)
+            User.objects.create_user(
+                username = usname,
+                email = email,
+                password = password,
+            )
+            return redirect("signin")
+        return render(request, "core/auth/signup.html", {
+            "error" : "Проверьте поля для ввода данных"})
     return render(request, "core/auth/signup.html")
 
 
