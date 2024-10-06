@@ -1,26 +1,48 @@
 <header class="p-3 bg-dark text-white">
-    <div class="container">
-      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-            logo
-        </a>
+  <div class="container">
+    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+      <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+        logo
+      </a>
 
-        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-          <li><a href="#" class="nav-link px-2 text-secondary"><ya-tr-span data-index="18-0" data-translated="true" data-source-lang="en" data-target-lang="ru" data-value="Home" data-translation="Главная" data-ch="1" data-type="trSpan" style="visibility: inherit !important;">Главная</ya-tr-span></a></li>
-          <li><a href="#" class="nav-link px-2 text-white"><ya-tr-span data-index="19-0" data-translated="true" data-source-lang="en" data-target-lang="ru" data-value="Features" data-translation="Характеристики" data-ch="1" data-type="trSpan" style="visibility: inherit !important;">Характеристики</ya-tr-span></a></li>
-          <li><a href="#" class="nav-link px-2 text-white"><ya-tr-span data-index="20-0" data-translated="true" data-source-lang="en" data-target-lang="ru" data-value="Pricing" data-translation="Цены" data-ch="1" data-type="trSpan" style="visibility: inherit !important;">Цены</ya-tr-span></a></li>
-          <li><a href="#" class="nav-link px-2 text-white"><ya-tr-span data-index="21-0" data-translated="true" data-source-lang="en" data-target-lang="ru" data-value="FAQs" data-translation="Вопросы и ответы" data-ch="1" data-type="trSpan" style="visibility: inherit !important;">Вопросы и ответы</ya-tr-span></a></li>
-          <li><a href="#" class="nav-link px-2 text-white"><ya-tr-span data-index="22-0" data-translated="true" data-source-lang="en" data-target-lang="ru" data-value="About" data-translation="О нас" data-ch="1" data-type="trSpan" style="visibility: inherit !important;">О нас</ya-tr-span></a></li>
-        </ul>
+      <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+        <li><a href="#" class="nav-link px-2 text-secondary"><ya-tr-span data-index="18-0" data-translated="true"
+              data-source-lang="en" data-target-lang="ru" data-value="Home" data-translation="Главная" data-ch="1"
+              data-type="trSpan" style="visibility: inherit !important;">Главная</ya-tr-span></a></li>
+        <li><a href="#" class="nav-link px-2 text-white"><ya-tr-span data-index="19-0" data-translated="true"
+              data-source-lang="en" data-target-lang="ru" data-value="Features" data-translation="Характеристики"
+              data-ch="1" data-type="trSpan" style="visibility: inherit !important;">Характеристики</ya-tr-span></a>
+        </li>
+        <li><a href="#" class="nav-link px-2 text-white"><ya-tr-span data-index="20-0" data-translated="true"
+              data-source-lang="en" data-target-lang="ru" data-value="Pricing" data-translation="Цены" data-ch="1"
+              data-type="trSpan" style="visibility: inherit !important;">Цены</ya-tr-span></a></li>
+        <li><a href="#" class="nav-link px-2 text-white"><ya-tr-span data-index="21-0" data-translated="true"
+              data-source-lang="en" data-target-lang="ru" data-value="FAQs" data-translation="Вопросы и ответы"
+              data-ch="1" data-type="trSpan" style="visibility: inherit !important;">Вопросы и ответы</ya-tr-span></a>
+        </li>
+        <li><a href="#" class="nav-link px-2 text-white"><ya-tr-span data-index="22-0" data-translated="true"
+              data-source-lang="en" data-target-lang="ru" data-value="About" data-translation="О нас" data-ch="1"
+              data-type="trSpan" style="visibility: inherit !important;">О нас</ya-tr-span></a></li>
+      </ul>
 
-        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-          <input type="search" class="form-control form-control-dark" placeholder="Поиск..." aria-label="Поиск">
-        </form>
+      <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
+        <input type="search" class="form-control form-control-dark" placeholder="Поиск..." aria-label="Поиск">
+      </form>
 
-        <div class="text-end">
-          <button type="button" class="btn btn-outline-light me-2"><ya-tr-span data-index="23-0" data-translated="true" data-source-lang="en" data-target-lang="ru" data-value="Login" data-translation="Вход" data-ch="1" data-type="trSpan" style="visibility: inherit !important;">Вход</ya-tr-span></button>
-          <a href="{% url 'signup' %}"><button type="button" class="btn btn-warning"><ya-tr-span data-index="23-1" data-translated="true" data-source-lang="en" data-target-lang="ru" data-value="Sign-up" data-translation="Регистрация" data-ch="1" data-type="trSpan" style="visibility: inherit !important;">Регистрация</ya-tr-span></button></a>
-        </div>
+      <div class="text-end">
+        <a href="{% url 'signin' %}"><button type="button" class="btn btn-outline-light me-2">
+            <ya-tr-span data-index="23-0" data-translated="true" data-source-lang="en" data-target-lang="ru"
+              data-value="Login" data-translation="Вход" data-ch="1" data-type="trSpan"
+              style="visibility: inherit !important;">Вход</ya-tr-span></button></a>
+        <a href="{% url 'signup' %}"><button type="button" class="btn btn-warning"><ya-tr-span data-index="23-1"
+              data-translated="true" data-source-lang="en" data-target-lang="ru" data-value="Sign-up"
+              data-translation="Регистрация" data-ch="1" data-type="trSpan"
+              style="visibility: inherit !important;">Регистрация</ya-tr-span></button></a>
+        <a href="{% url 'signin' %}"><button type="button" class="btn btn-outline-light me-2">
+          <ya-tr-span data-index="23-0" data-translated="true" data-source-lang="en" data-target-lang="ru"
+            data-value="Login" data-translation="Вход" data-ch="1" data-type="trSpan"
+            style="visibility: inherit !important;">Выход</ya-tr-span></button></a>
       </div>
     </div>
-  </header>
+  </div>
+</header>

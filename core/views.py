@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login, logout
+
 # Create your views here.
 def signup(request):
     if request.method == "POST":
@@ -15,8 +17,8 @@ def signup(request):
             user = User.objects.filter(
                 username = usname,
                 email = email,
-                ).first()
-            if user:
+                )
+            if user !=0:
                 return render(request, "core/auth/signup.html",{
                     "error" : "Такой пользователь уже существует"
                 })
@@ -33,6 +35,19 @@ def signup(request):
 
 
 def signin(request):
+    if request.method == "POST":
+        password = request.POST.get("password")
+        username = request.POST.get("username")
+        user = authenticate(
+            request, username=username, password=password
+        )
+        if user != None:
+            login(request, user)
+            return redirect("profile")
+        else:
+            return render(request, "core/auth/signin.html", {
+                "error" : "Неверный логин или пароль"
+            })
     return render(request, "core/auth/signin.html")
 
 
@@ -41,4 +56,5 @@ def profile(request):
 
 
 def signout(request):
-    pass
+    logout(request)
+    return redirect("signin")
