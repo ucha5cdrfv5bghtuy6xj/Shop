@@ -1,3 +1,4 @@
+{% load static %}
 <header class="p-3 bg-dark text-white">
   <div class="container">
     <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
@@ -25,23 +26,45 @@
               data-type="trSpan" style="visibility: inherit !important;">О нас</ya-tr-span></a></li>
       </ul>
 
-      <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
+      <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-5">
         <input type="search" class="form-control form-control-dark" placeholder="Поиск..." aria-label="Поиск">
       </form>
 
-      <div class="text-end">
-        <a href="{% url 'signin' %}"><button type="button" class="btn btn-outline-light me-2">
-            <ya-tr-span data-index="23-0" data-translated="true" data-source-lang="en" data-target-lang="ru"
-              data-value="Login" data-translation="Вход" data-ch="1" data-type="trSpan"
-              style="visibility: inherit !important;">Вход</ya-tr-span></button></a>
-        <a href="{% url 'signup' %}"><button type="button" class="btn btn-warning"><ya-tr-span data-index="23-1"
-              data-translated="true" data-source-lang="en" data-target-lang="ru" data-value="Sign-up"
-              data-translation="Регистрация" data-ch="1" data-type="trSpan"
-              style="visibility: inherit !important;">Регистрация</ya-tr-span></button></a>
-        <a href="{% url 'signin' %}"><button type="button" class="btn btn-outline-light me-2">
-          <ya-tr-span data-index="23-0" data-translated="true" data-source-lang="en" data-target-lang="ru"
-            data-value="Login" data-translation="Вход" data-ch="1" data-type="trSpan"
-            style="visibility: inherit !important;">Выход</ya-tr-span></button></a>
+      <div class="text-end gap-5">
+        <nav class="navbar navbar-expand-lg">
+          <ul class="navbar-nav mb-2 mb-lg-0 gap-2">
+            <li class="nav-item">
+              <a class="nav-link py-0 text-white" href="{% url 'catalog' %}">
+                Catalog
+              </a>
+            </li>
+            {% if request.user.is_authenticated %}
+            <li class="nav-item">
+              <a class="py-0" href="{% url 'profile' %}">
+                <img width="20" height="20" style="filter: invert(0.75)" src="{% static 'shop/img/profile.png' %}"
+                  alt="profile">
+              </a>
+            </li>
+            <li class="nav-item my-auto">
+              <a class="py-0" href="{% url 'signout' %}">
+                <img width="24" height="24" style="filter: invert(0.75)" src="{% static 'shop/img/exit.webp' %}"
+                  alt="signout">
+              </a>
+            </li>
+            {% else %}
+            <li class="nav-item my-auto">
+              <a class="btn btn-secondary py-0" href="{% url 'signin' %}">
+                Sign In
+              </a>
+            </li>
+            <li class="nav-item my-auto">
+              <a class="btn btn-secondary py-0" href="{% url 'signup' %}">
+                Sing Up
+              </a>
+            </li>
+            {% endif %}
+          </ul>
+        </nav>
       </div>
     </div>
   </div>
