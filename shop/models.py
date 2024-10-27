@@ -1,4 +1,5 @@
 from django.db import models
+from core.models import User
 
 # Create your models here.
 class Product(models.Model):
@@ -19,3 +20,8 @@ class Order(models.Model):
     product = models.ForeignKey(Product, on_delete=models.SET_NULL, null=True)
     adres = models.CharField(max_length=255)
     created_at = models.DateTimeField(auto_now_add=True)
+    user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+
+
+
+

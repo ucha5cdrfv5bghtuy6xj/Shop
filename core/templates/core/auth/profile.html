@@ -1,3 +1,29 @@
 {% extends 'shop/base.html' %}
 {% load static %}
 {% block title %} profile {% endblock %}
+{% block content %}
+<div class="d-flex flex-column mx-auto"
+style="width: min-content;">
+    <div class="d-flex align-items-center gap-3">
+        <img src="{% static 'core/img/i.webp' %}" alt=""
+        width="50" height="50">
+        <h1 class="text-body text-center fw-bold">
+            {{request.user.username}}</h1>
+    </div>
+    <ul>
+        {% if request.user.first_name %}
+        <li>{{request.user.first_name}}</li>
+        {% endif %}
+        {% if request.user.last_name %}
+        <li>{{request.user.last_name}}</li>
+        {% endif %}
+        {% if request.user.email %}
+        <li>{{request.user.email}}</li>
+        {% endif %}
+    </ul>
+    <a href="{% url 'orders' %}"
+    class="btn border-secondary mx-auto">
+    Заказы
+    </a>
+</div>
+{% endblock %}

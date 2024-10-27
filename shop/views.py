@@ -9,15 +9,22 @@ def catalog(request):
 
 
 def orders(request):
-    orders = Order.objects.all()
-    
-    return render(request, "shop/orders.html", {"orders":orders})
+    if request.user.is_authenticated == True:
+        orders = Order.objects.filter(
+            user = request.user
+        )
+        return render(request, "shop/orders.html", {"orders":orders})
+    else:
+        return redirect("signin")
 
 
 def order_create(request, product_id):
     product = Product.objects.get(id=product_id)
     if request.method == "POST":
-        Order.objects.create(product = product, adres = request.POST.get("delivery_address"))
+        Order.objects.create(
+            product = product,
+            user = request.user,
+            adres = request.POST.get("delivery_address"))
         return redirect("orders")
     
     return render(request, "shop/order_create.html", {"product":product})
